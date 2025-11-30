@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <title>MTs Sunan Ampel Mulyosari</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles for Hero Video -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-sans antialiased">
+    <!-- Navbar Mobile-Friendly -->
+    <nav class="fixed top-0 left-0 w-full bg-yellow-50 shadow-md z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <!-- Logo & Brand -->
+        <div class="flex items-center space-x-2">
+          <img
+            src="logo_mtssam.png"
+            alt="Logo MTs Sunan Ampel"
+            class="w-10 h-10 rounded-full"
+          />
+          <span class="text-gray-800 font-bold text-lg"
+            >MTs Sunan Ampel Mulyosari</span
+          >
+        </div>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button
+          id="mobileMenuButton"
+          class="md:hidden text-gray-700 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <!-- Desktop Menu (Hidden on Mobile) -->
+        <ul class="hidden md:flex space-x-6 text-sm text-gray-700">
+          <li><a href="#sambutan" class="hover:text-blue-600">Sambutan</a></li>
+          <li>
+            <a href="visi-misi.html" class="hover:text-blue-600">Visi & Misi</a>
+          </li>
+          <li>
+            <a href="prestasi.html" class="hover:text-blue-600">Prestasi</a>
+          </li>
+          <li>
+            <a href="struktur.html" class="hover:text-blue-600">Struktur</a>
+          </li>
+          <li><a href="#guru" class="hover:text-blue-600">Guru</a></li>
+          <li><a href="#galeri" class="hover:text-blue-600">Galeri</a></li>
+        </ul>
+        <!-- Desktop CTA Button (Hidden on Mobile) -->
+        <a
+          href="#ppdb"
+          onclick=""
+          class="hidden md:block bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md transition"
+        >
+          Daftar PPDB
+        </a>
+      </div>
+      <!-- Mobile Sidebar Menu -->
+      <div
+        id="mobileSidebar"
+        class="fixed top-0 right-0 w-80 h-full bg-yellow-50 shadow-xl transform translate-x-full transition-transform duration-300 z-50 p-4"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center space-x-2">
+            <img
+              src="logo_mtssam.png"
+              alt="Logo MTs Sunan Ampel"
+              class="w-10 h-10 rounded-full"
+            />
+            <span class="text-teal-700 font-bold text-lg"
+              >MTs Sunan Ampel Mulyosari</span
+            >
+          </div>
+          <button id="closeMobileMenu" class="text-gray-700 focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile Menu Items -->
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="#sambutan"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Sambutan</a
+            >
+          </li>
+          <li>
+            <a
+              href="visi-misi.html"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Visi & Misi</a
+            >
+          </li>
+          <li>
+            <a
+              href="prestasi.html"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Prestasi</a
+            >
+          </li>
+          <li>
+            <a
+              href="struktur.html"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Struktur</a
+            >
+          </li>
+          <li>
+            <a
+              href="#guru"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Guru</a
+            >
+          </li>
+          <li>
+            <a
+              href="#galeri"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Galeri</a
+            >
+          </li>
+        </ul>
+        <!-- Mobile CTA Button -->
+        <div class="mt-8">
+          <a
+            href="#ppdb"
+            class="block w-full text-center bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-4 rounded-md transition"
+            onclick="closeMobileMenuAndScroll(event)"
+          >
+            Daftar PPDB
+          </a>
+        </div>
+      </div>
+    </nav>
+    <script>
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const closeMobileMenu = document.getElementById("closeMobileMenu");
+      const mobileSidebar = document.getElementById("mobileSidebar");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileSidebar.classList.remove("translate-x-full");
+      });
+
+      closeMobileMenu.addEventListener("click", () => {
+        mobileSidebar.classList.add("translate-x-full");
+      });
+
+      // Fungsi baru untuk menutup sidebar dan mengarahkan ke bagian PPDB
+      function closeMobileMenuAndScroll(event) {
+        // Mencegah perilaku default dari anchor (scroll otomatis sebelum sidebar tertutup)
+        event.preventDefault();
+
+        // Tutup sidebar dulu
+        mobileSidebar.classList.add("translate-x-full");
+
+        // Setelah sidebar tertutup (300ms sesuai transisi), lakukan scroll
+        setTimeout(() => {
+          const targetSection = document.getElementById("ppdb");
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300); // Harus sesuai dengan durasi transisi Tailwind (300ms)
+      }
+
+      // Close sidebar if click outside
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileSidebar.contains(e.target) &&
+          !mobileMenuButton.contains(e.target)
+        ) {
+          mobileSidebar.classList.add("translate-x-full");
+        }
+      });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full pt-16">
+      <!-- pt-16 untuk offset navbar -->
+      <!-- Video Background -->
+      <div class="absolute top-0 left-0 w-full h-full z-0">
+        <video
+          class="video-bg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          title="School Profile Video"
+        >
+          <source src="profil_mtssam.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Overlay -->
+      <div class="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-20 flex h-full flex-col items-center justify-center text-center text-white px-4"
+      >
+        <h1
+          class="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
+        >
+          MTs Sunan Ampel Mulyosari
+        </h1>
+        <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-200">
+          Membentuk Generasi Unggul Berlandaskan Iman dan Taqwa
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="#ppdb"
+            class="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-md transition text-lg"
+          >
+            Pendaftaran Siswa Baru
+          </a>
+          <a
+            href="#sambutan"
+            class="bg-white/20 hover:bg-white/30 text-white font-medium py-3 px-6 rounded-md transition text-lg backdrop-blur-sm"
+          >
+            Jelajahi Lebih Lanjut
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sambutan Kepala Sekolah Section -->
+    <section id="sambutan" class="py-12 md:py-24 bg-yellow-50">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
+        >
+          <!-- Foto Kepala Sekolah -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="photo-container">
+              <img
+                src="teacher/kepsek.jpeg"
+                alt="Foto Kepala Sekolah MTs Sunan Ampel Mulyosari"
+                class="photo-image"
+              />
+            </div>
+          </div>
+
+          <!-- Teks Sambutan -->
+          <div class="md:col-span-7">
+            <h2
+              class="text-3xl md:text-4xl font-bold font-headline text-teal-700 mb-4"
+            >
+              Sambutan Kepala Sekolah
+            </h2>
+            <div class="space-y-4 text-base md:text-lg text-gray-700">
+              <p>
+                <strong>Assalamu'alaikum Warahmatullahi Wabarakatuh.</strong>
+              </p>
+              <p>
+                Selamat datang di website resmi MTs Sunan Ampel Mulyosari.
+                Dengan penuh rasa syukur, kami persembahkan platform digital ini
+                sebagai sarana komunikasi dan informasi bagi seluruh civitas
+                akademika serta masyarakat luas.
+              </p>
+              <p>
+                Kami berkomitmen untuk menyediakan pendidikan berkualitas yang
+                tidak hanya unggul dalam bidang akademik, tetapi juga kokoh
+                dalam nilai-nilai keislaman dan akhlak mulia. Melalui website
+                ini, kami berharap dapat berbagi informasi mengenai program,
+                kegiatan, dan prestasi sekolah kami. Mari bersama-sama kita
+                wujudkan generasi yang cerdas, berkarakter, dan siap menghadapi
+                tantangan zaman.
+              </p>
+              <p>
+                <strong>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</strong>
+              </p>
+            </div>
+            <div class="mt-6">
+              <p class="font-bold font-headline text-lg text-gray-800">
+                Santoso, S.HI.
+              </p>
+              <p class="text-sm text-gray-500">
+                Kepala MTs Sunan Ampel Mulyosari
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prestasi Unggulan Section -->
+    <section id="prestasi-unggulan" class="py-12 md:py-24 bg-yellow-50">
+      <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-headline text-teal-700"
+          >
+            Prestasi Unggulan
+          </h2>
+          <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+            Komitmen kami dalam mencetak generasi berprestasi tercermin dari
+            berbagai pencapaian gemilang.
+          </p>
+        </div>
+
+        <!-- Grid Prestasi -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Prestasi 1 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 card-hover"
+          >
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-teal-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 6l-6-6-6 6"
+                />
+              </svg>
+            </div>
+            <h3 class="font-headline text-lg font-semibold text-gray-800">
+              Juara 1 Lomba Cerdas Cermat Tingkat Kabupaten
+            </h3>
+            <p class="mt-2 text-sm text-gray-500">
+              Tim Cerdas Cermat kami berhasil meraih juara pertama, menunjukkan
+              keunggulan akademik sekolah.
+            </p>
+          </div>
+
+          <!-- Prestasi 2 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 card-hover"
+          >
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-teal-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+            </div>
+            <h3 class="font-headline text-lg font-semibold text-gray-800">
+              Juara 2 Lomba Tahfidz Al-Quran
+            </h3>
+            <p class="mt-2 text-sm text-gray-500">
+              Siswa kami menunjukkan prestasi gemilang dalam menghafal Al-Quran
+              pada kompetisi tingkat provinsi.
+            </p>
+          </div>
+
+          <!-- Prestasi 3 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 card-hover"
+          >
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-teal-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h-2v-2a6 6 0 00-5-5H8V11H6V9H4v2H2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-headline text-lg font-semibold text-gray-800">
+              Juara Umum Pekan Olahraga Pelajar
+            </h3>
+            <p class="mt-2 text-sm text-gray-500">
+              Kontingen olahraga MTs Sunan Ampel Mulyosari berhasil menjadi
+              juara umum dengan meraih medali terbanyak.
+            </p>
+          </div>
+
+          <!-- Prestasi 4 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 card-hover"
+          >
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 text-teal-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 6l-6-6-6 6"
+                />
+              </svg>
+            </div>
+            <h3 class="font-headline text-lg font-semibold text-gray-800">
+              Finalis Olimpiade Sains Nasional
+            </h3>
+            <p class="mt-2 text-sm text-gray-500">
+              Mewakili kabupaten, siswa kami berhasil lolos ke babak final
+              Olimpiade Sains Nasional (OSN) bidang Matematika.
+            </p>
+          </div>
+        </div>
+
+        <!-- Button Lihat Semua -->
+        <div class="text-center mt-16">
+          <a
+            href="prestasi.html"
+            class="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-md transition duration-300"
+          >
+            Lihat Semua Prestasi
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="ml-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tenaga Pendidik Profesional (Carousel - Infinite Scroll) -->
+    <section id="guru" class="py-12 md:py-24 bg-blue-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-headline text-teal-700"
+          >
+            Tenaga Pendidik Profesional
+          </h2>
+          <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+            Dibimbing oleh para guru yang berdedikasi dan ahli di bidangnya.
+          </p>
+        </div>
+
+        <div
+          class="relative max-w-6xl mx-auto overflow-x-auto"
+          id="teachers-carousel"
+        >
+          <div class="flex" id="carousel-track">
+            <div
+              class="carousel-item w-full sm:w-1/2 lg:w-1/4 p-4 flex-shrink-0"
+            >
+              <div
+                class="teacher-card p-4 bg-white rounded-xl shadow-sm text-center hover:shadow-lg"
+              >
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
+                  <img
+                    src="teacher/nikmatul_2.png"
+                    alt="Nikmatul Ulfa Sari, S.SI"
+                    class="rounded-full border-4 border-white shadow-lg w-full h-full object-cover"
+                  />
+                </div>
+                <h3 class="font-bold font-headline text-lg">
+                  Nikmatul Ulfa Sari, S.SI
+                </h3>
+                <p class="text-sm text-teal-600">Bendahara / Wali Kelas VIII</p>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item w-full sm:w-1/2 lg:w-1/4 p-4 flex-shrink-0"
+            >
+              <div
+                class="teacher-card p-4 bg-white rounded-xl shadow-sm text-center hover:shadow-lg"
+              >
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
+                  <img
+                    src="teacher/cicifanisa_2.png"
+                    alt="Cici Fanisa Yulia Dwi Jayanti, S.Pd"
+                    class="rounded-full border-4 border-white shadow-lg w-full h-full object-cover"
+                  />
+                </div>
+                <h3 class="font-bold font-headline text-lg">
+                  Cici Fanisa Yulia Dwi Jayanti, S.Pd
+                </h3>
+                <p class="text-sm text-teal-600">
+                  Kepala TU / Koordinator BK/BP / Wali Kelas IX
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item w-full sm:w-1/2 lg:w-1/4 p-4 flex-shrink-0"
+            >
+              <div
+                class="teacher-card p-4 bg-white rounded-xl shadow-sm text-center hover:shadow-lg"
+              >
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
+                  <img
+                    src="teacher/khittotud_2.png"
+                    alt="Khittotud Diniyah, S.Pd"
+                    class="rounded-full border-4 border-white shadow-lg w-full h-full object-cover"
+                  />
+                </div>
+                <h3 class="font-bold font-headline text-lg">
+                  Khittotud Diniyah, S.Pd
+                </h3>
+                <p class="text-sm text-teal-600">
+                  Kepala Perpustakaan / Wali Kelas VII
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item w-full sm:w-1/2 lg:w-1/4 p-4 flex-shrink-0"
+            >
+              <div
+                class="teacher-card p-4 bg-white rounded-xl shadow-sm text-center hover:shadow-lg"
+              >
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
+                  <img
+                    src="teacher/santoso_2.png"
+                    alt="Santoso, S.HI"
+                    class="rounded-full border-4 border-white shadow-lg w-full h-full object-cover"
+                  />
+                </div>
+                <h3 class="font-bold font-headline text-lg">Santoso, S.HI</h3>
+                <p class="text-sm text-teal-600">Kepala Madrasah</p>
+              </div>
+            </div>
+
+            <div
+              class="carousel-item w-full sm:w-1/2 lg:w-1/4 p-4 flex-shrink-0"
+            >
+              <div
+                class="teacher-card p-4 bg-white rounded-xl shadow-sm text-center hover:shadow-lg"
+              >
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-4">
+                  <img
+                    src="teacher/abdul_arifian_2.png"
+                    alt="Abdul Halim A.A, S.Pd"
+                    class="rounded-full border-4 border-white shadow-lg w-full h-full object-cover"
+                  />
+                </div>
+                <h3 class="font-bold font-headline text-lg">
+                  Abdul Halim A.A, S.Pd
+                </h3>
+                <p class="text-sm text-teal-600">Waka Kesiswaan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri Kegiatan -->
+    <section id="galeri" class="py-12 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl font-bold font-headline text-teal-700"
+          >
+            Galeri Kegiatan
+          </h2>
+          <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+            Momen-momen berharga dari berbagai kegiatan sekolah kami.
+          </p>
+        </div>
+
+        <!-- Grid Galeri -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+        >
+          <!-- Gambar 1 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/kegiatan_haflah_1.jpg"
+              alt="Kegiatan Sekolah 1"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 2 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/kegiatan_haflah_2.jpg"
+              alt="Kegiatan Sekolah 2"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 3 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/kegiatan_haflah_3.jpg"
+              alt="Kegiatan Sekolah 3"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 4 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/kegiatan_haflah_4.jpg"
+              alt="Kegiatan Sekolah 4"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 5 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/kegiatan_haflah_5.jpg"
+              alt="Kegiatan Sekolah 5"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 6 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/kegiatan_haflah_6.jpg"
+              alt="Kegiatan Sekolah 6"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 4 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/pelepasan_siswa_1.jpg"
+              alt="Kegiatan Sekolah 4"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 5 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/pelepasan_siswa_2.jpg"
+              alt="Kegiatan Sekolah 5"
+              class="gallery-image"
+            />
+          </div>
+
+          <!-- Gambar 6 -->
+          <div class="gallery-item">
+            <img
+              src="gallery/pelepasan_siswa_3.jpg"
+              alt="Kegiatan Sekolah 6"
+              class="gallery-image"
+            />
+          </div>
+        </div>
+
+        <!-- Tombol Instagram -->
+        <div class="text-center mt-16">
+          <a
+            href="https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-md transition duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2 h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.847.07 3.242.148 4.684.668 5.776 1.356.98.61 1.716 1.374 2.18 2.18.688 1.092 1.208 2.534 1.356 5.776.057 1.263.069 1.643.069 4.847v.163c0 3.204-.012 3.584-.069 4.847-.149 3.242-.669 4.684-1.356 5.776-.61.98-1.374 1.716-2.18 2.18-1.092.688-2.534 1.208-5.776 1.356-1.263.057-1.643.069-4.847.069h-.163c-3.204 0-3.584-.012-4.847-.069-3.242-.148-4.684-.668-5.776-1.356-.98-.61-1.716-1.374-2.18-2.18-1.356-2.177-1.356-2.177-1.356-5.776v-.163c0-3.204.012-3.584.069-4.847.149-3.242.669-4.684 1.356-5.776.61-.98 1.374-1.716 2.18-2.18 1.092-.688 2.534-1.208 5.776-1.356 1.263-.057 1.643-.069 4.847-.069h.163zm0-2.163h-.163c-3.204 0-3.584.012-4.847.069-3.242.148-4.684.668-5.776 1.356-.98.61-1.716 1.374-2.18 2.18-1.356 2.177-1.356 2.177-1.356 5.776v.163c0 3.204.012 3.584.069 4.847.149 3.242.669 4.684 1.356 5.776.61.98 1.374 1.716 2.18 2.18 1.092.688 2.534 1.208 5.776 1.356 1.263.057 1.643.069 4.847.069h.163c3.204 0 3.584-.012 4.847-.069 3.242-.148 4.684-.668 5.776-1.356.98-.61 1.716-1.374 2.18-2.18 1.356-2.177 1.356-2.177 1.356-5.776v-.163c0-3.204-.012-3.584-.069-4.847-.149-3.242-.669-4.684-1.356-5.776-.61-.98-1.374-1.716-2.18-2.18-1.092-.688-2.534-1.208-5.776-1.356-1.263-.057-1.643-.069-4.847-.069zm0 5.838c-3.405 0-6.162 2.757-6.162 6.162s2.757 6.162 6.162 6.162 6.162-2.757 6.162-6.162-2.757-6.162-6.162-6.162zm0 10.162c-2.274 0-4.162-1.888-4.162-4.162s1.888-4.162 4.162-4.162 4.162 1.888 4.162 4.162-1.888 4.162-4.162 4.162zm6.406-18.908c-1.058 0-1.897.839-1.897 1.897s.839 1.897 1.897 1.897 1.897-.839 1.897-1.897-.839-1.897-1.897-1.897z"
+              />
+            </svg>
+            Lihat Lebih Banyak di Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="ppdb" class="py-20 md:py-32 bg-teal-700 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-headline mb-4">
+          "Unggul Dalam Prestasi Yang Berakhlakul Karimah"
+        </h2>
+        <p class="text-lg text-white/80 mb-8 max-w-3xl mx-auto">
+          Jadilah bagian dari keluarga besar MTs Sunan Ampel Mulyosari dan
+          wujudkan potensi terbaikmu bersama kami.
+        </p>
+        <a
+          href="#ppdb"
+          onclick="openModal()"
+          class="cta-button inline-flex items-center px-8 py-4 bg-yellow-400 hover:bg-yellow-500 text-black font-medium rounded-md transition duration-300 text-lg"
+        >
+          Daftar PPDB Sekarang
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="ml-2 h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-50 text-gray-700">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Logo & Kontak -->
+          <div class="flex flex-col">
+            <div class="flex items-center mb-4">
+              <img
+                src="logo_mtssam.png"
+                alt="Logo MTs Sunan Ampel"
+                class="w-10 h-10 rounded-full mr-2"
+              />
+              <span class="text-xl font-bold font-headline text-teal-700"
+                >MTs Sunan Ampel Mulyosari</span
+              >
+            </div>
+            <p class="text-sm">Dsn. Mulyosari, Ds. Bunder, Kabat, Banyuwangi</p>
+            <p class="text-sm mt-2">+62 823-0124-7678 (Bu Nikma)</p>
+            <p class="text-sm">+62 822-3495-5585 (P.Arif)</p>
+          </div>
+
+          <!-- Tautan Cepat -->
+          <div>
+            <h3 class="text-lg font-semibold font-headline mb-4 text-teal-700">
+              Tautan Cepat
+            </h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="#sambutan"
+                  class="hover:text-teal-600 transition-colors"
+                  >Sambutan Kepala Sekolah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="visi-misi.html"
+                  class="hover:text-teal-600 transition-colors"
+                  >Visi & Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="prestasi.html"
+                  class="hover:text-teal-600 transition-colors"
+                  >Prestasi</a
+                >
+              </li>
+              <li>
+                <a href="#guru" class="hover:text-teal-600 transition-colors"
+                  >Guru</a
+                >
+              </li>
+              <li>
+                <a href="#galeri" class="hover:text-teal-600 transition-colors"
+                  >Galeri</a
+                >
+              </li>
+              <li>
+                <a href="#ppdb" class="hover:text-teal-600 transition-colors"
+                  >PPDB</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ikuti Kami -->
+          <div>
+            <h3 class="text-lg font-semibold font-headline mb-4 text-teal-700">
+              Ikuti Kami
+            </h3>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3"
+                aria-label="Instagram"
+                class="text-gray-600 hover:text-teal-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.847.07 3.242.148 4.684.668 5.776 1.356.98.61 1.716 1.374 2.18 2.18.688 1.092 1.208 2.534 1.356 5.776.057 1.263.069 1.643.069 4.847v.163c0 3.204-.012 3.584-.069 4.847-.149 3.242-.669 4.684-1.356 5.776-.61.98-1.374 1.716-2.18 2.18-1.092.688-2.534 1.208-5.776 1.356-1.263.057-1.643.069-4.847.069h-.163c-3.204 0-3.584-.012-4.847-.069-3.242-.148-4.684-.668-5.776-1.356-.98-.61-1.716-1.374-2.18-2.18-1.356-2.177-1.356-2.177-1.356-5.776v-.163c0-3.204.012-3.584.069-4.847.149-3.242.669-4.684 1.356-5.776.61-.98 1.374-1.716 2.18-2.18 1.092-.688 2.534-1.208 5.776-1.356 1.263-.057 1.643-.069 4.847-.069h.163zm0-2.163h-.163c-3.204 0-3.584.012-4.847.069-3.242.148-4.684.668-5.776 1.356-.98.61-1.716 1.374-2.18 2.18-1.356 2.177-1.356 2.177-1.356 5.776v.163c0 3.204.012 3.584.069 4.847.149 3.242.669 4.684 1.356 5.776.61.98 1.374 1.716 2.18 2.18 1.092.688 2.534 1.208 5.776 1.356 1.263.057 1.643.069 4.847.069h.163c3.204 0 3.584-.012 4.847-.069 3.242-.148 4.684-.668 5.776-1.356.98-.61 1.716-1.374 2.18-2.18 1.356-2.177 1.356-2.177 1.356-5.776v-.163c0-3.204-.012-3.584-.069-4.847-.149-3.242-.669-4.684-1.356-5.776-.61-.98-1.374-1.716-2.18-2.18-1.092-.688-2.534-1.208-5.776-1.356-1.263-.057-1.643-.069-4.847-.069zm0 5.838c-3.405 0-6.162 2.757-6.162 6.162s2.757 6.162 6.162 6.162 6.162-2.757 6.162-6.162-2.757-6.162-6.162-6.162zm0 10.162c-2.274 0-4.162-1.888-4.162-4.162s1.888-4.162 4.162-4.162 4.162 1.888 4.162 4.162-1.888 4.162-4.162 4.162zm6.406-18.908c-1.058 0-1.897.839-1.897 1.897s.839 1.897 1.897 1.897 1.897-.839 1.897-1.897-.839-1.897-1.897-1.897z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/@MTsSunanAmpel-ck5rc"
+                aria-label="YouTube"
+                class="text-gray-600 hover:text-teal-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 00-2.122-2.122C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.376.519A3.016 3.016 0 00.502 6.186C0 8.058 0 12 0 12s0 3.942.502 5.814a3.016 3.016 0 002.122 2.122C4.495 20.455 12 20.455 12 20.455s7.505 0 9.376-.519a3.016 3.016 0 002.122-2.122C24 15.942 24 12 24 12s0-3.942-.502-5.814zM9.75 15.021V8.979L15.515 12l-5.765 3.021z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="mt-8 border-t border-gray-200 pt-6 text-center text-sm text-gray-500"
+        >
+          <p>&copy; 2025 MTs Sunan Ampel Mulyosari. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal PPDB -->
+    <div id="ppdbModal" class="modal-backdrop">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Formulir Pendaftaran PPDB</h3>
+          <button id="closePPDBModal" class="modal-close">&times;</button>
+        </div>
+        <p class="text-xs text-gray-600 mb-4">
+          Isi data di bawah ini untuk melanjutkan pendaftaran melalui WhatsApp.
+        </p>
+
+        <form id="ppdbForm" class="space-y-4">
+          <div class="form-group">
+            <label for="studentName" class="form-label">Nama Calon Siswa</label>
+            <input
+              type="text"
+              id="studentName"
+              placeholder="Contoh: Budi Hartono"
+              class="form-input"
+              required
+            />
+            <div id="studentNameError" class="error-message hidden"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="originSchool" class="form-label"
+              >Asal Sekolah (MI/SD)</label
+            >
+            <input
+              type="text"
+              id="originSchool"
+              placeholder="Contoh: MI Al-Hidayah"
+              class="form-input"
+              required
+            />
+            <div id="originSchoolError" class="error-message hidden"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="academicYear" class="form-label">Tahun Ajaran</label>
+            <select id="academicYear" class="form-select" required>
+              <option value="">Pilih tahun ajaran</option>
+              <option value="2025/2026">2025/2026</option>
+              <option value="2026/2027">2026/2027</option>
+            </select>
+            <div id="academicYearError" class="error-message hidden"></div>
+          </div>
+
+          <div class="flex justify-end">
+            <button type="submit" class="btn-primary">
+              Lanjutkan ke WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JavaScript for Modal -->
+    <script>
+      // Ambil elemen modal
+      const modal = document.getElementById("ppdbModal");
+      const openModalBtns = document.querySelectorAll(
+        "#openPPDBModal, #openPPDBModalCTA"
+      );
+      const closeModalBtn = document.getElementById("closePPDBModal");
+      const form = document.getElementById("ppdbForm");
+
+      // Fungsi untuk membuka modal
+      function openModal() {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden"; // Blokir scroll
+      }
+
+      // Fungsi untuk menutup modal
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto"; // Aktifkan scroll kembali
+        // Reset form
+        form.reset();
+        // Sembunyikan error message
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => el.classList.add("hidden"));
+      }
+
+      // Event listener untuk membuka modal
+      openModalBtns.forEach((btn) => {
+        btn.addEventListener("click", openModal);
+      });
+
+      // Event listener untuk menutup modal
+      closeModalBtn.addEventListener("click", closeModal);
+
+      // Tutup modal jika klik di luar konten
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Handle submit form
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Reset error messages
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => el.classList.add("hidden"));
+
+        // Validasi form
+        let isValid = true;
+        const studentName = document.getElementById("studentName").value.trim();
+        const originSchool = document
+          .getElementById("originSchool")
+          .value.trim();
+        const academicYear = document.getElementById("academicYear").value;
+
+        if (studentName.length < 2) {
+          showError(
+            "studentNameError",
+            "Nama harus diisi (minimal 2 karakter)."
+          );
+          isValid = false;
+        }
+
+        if (originSchool.length < 2) {
+          showError(
+            "originSchoolError",
+            "Asal sekolah harus diisi (minimal 2 karakter)."
+          );
+          isValid = false;
+        }
+
+        if (!academicYear) {
+          showError("academicYearError", "Tahun ajaran harus dipilih.");
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Buat pesan WhatsApp
+        const phoneNumber = "6282301247678";
+        const greeting = "Assalamualaikum Warahmatullahi Wabarakatuh.";
+        const intro =
+          "Yth. Bu Nikma,\nSaya tertarik untuk mendaftarkan siswa baru di MTS Sunan Ampel Mulyosari.";
+        const studentData = `Berikut data awal saya: \n*  Nama Calon Siswa: ${studentName}\n*  Asal Sekolah (MI/SD): ${originSchool}\n*  Nomor WA Aktif Orang Tua: [Nomor WA Anda]`;
+        const request = `Mohon bantuannya untuk informasi lebih lanjut mengenai persyaratan pendaftaran PPDB tahun ajaran ${academicYear} dan langkah selanjutnya.`;
+        const closing = "Terima kasih.";
+
+        const message = [greeting, intro, studentData, request, closing].join(
+          "\n\n"
+        );
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+          message
+        )}`;
+
+        // Buka WhatsApp
+        window.open(whatsappUrl, "_blank");
+
+        // Tutup modal dan reset form
+        closeModal();
+      });
+
+      // Fungsi helper untuk menampilkan error
+      function showError(errorId, message) {
+        const errorElement = document.getElementById(errorId);
+        errorElement.textContent = message;
+        errorElement.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

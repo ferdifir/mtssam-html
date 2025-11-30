@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Struktur Organisasi - MTs Sunan Ampel Mulyosari</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles for Org Chart -->
+    <style>
+      .org-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: rgba(20, 184, 166, 0.1); /* teal-100 */
+        border: 2px solid #0f766e; /* teal-700 */
+        transition: all 0.3s ease;
+      }
+      .org-item:hover {
+        background-color: rgba(20, 184, 166, 0.2);
+        transform: translateY(-2px);
+      }
+      .org-role {
+        font-weight: bold;
+        color: #0f766e; /* teal-700 */
+        font-size: 0.875rem;
+      }
+      .org-name {
+        font-size: 0.75rem;
+        color: #1e293b; /* gray-800 */
+      }
+      .vertical-line {
+        width: 2px;
+        height: 2rem;
+        background-color: #94a3b8; /* gray-400 */
+        margin: 0.5rem 0;
+      }
+      .box-item {
+        padding: 0.5rem;
+        background-color: #f8fafc; /* gray-50 */
+        border: 1px solid #cbd5e1; /* gray-300 */
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        color: #1e293b; /* gray-800 */
+        text-align: center;
+      }
+      .section-title {
+        font-weight: bold;
+        color: #0f766e; /* teal-700 */
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased bg-yellow-50">
+    <!-- Navbar Mobile-Friendly -->
+    <nav class="fixed top-0 left-0 w-full bg-yellow-50 shadow-md z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <!-- Logo & Brand -->
+        <div class="flex items-center space-x-2">
+          <img
+            src="logo_mtssam.png"
+            alt="Logo MTs Sunan Ampel"
+            class="w-10 h-10 rounded-full"
+          />
+          <span class="text-gray-800 font-bold text-lg"
+            >MTs Sunan Ampel Mulyosari</span
+          >
+        </div>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button
+          id="mobileMenuButton"
+          class="md:hidden text-gray-700 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+        <!-- Desktop Menu (Hidden on Mobile) -->
+        <ul class="hidden md:flex space-x-6 text-sm text-gray-700">
+          <li><a href="#sambutan" class="hover:text-blue-600">Sambutan</a></li>
+          <li>
+            <a href="visi-misi.html" class="hover:text-blue-600">Visi & Misi</a>
+          </li>
+          <li>
+            <a href="prestasi.html" class="hover:text-blue-600">Prestasi</a>
+          </li>
+          <li>
+            <a href="struktur.html" class="hover:text-blue-600">Struktur</a>
+          </li>
+          <li><a href="#guru" class="hover:text-blue-600">Guru</a></li>
+          <li><a href="#galeri" class="hover:text-blue-600">Galeri</a></li>
+        </ul>
+        <!-- Desktop CTA Button (Hidden on Mobile) -->
+        <a
+          href="#ppdb"
+          onclick=""
+          class="hidden md:block bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md transition"
+        >
+          Daftar PPDB
+        </a>
+      </div>
+      <!-- Mobile Sidebar Menu -->
+      <div
+        id="mobileSidebar"
+        class="fixed top-0 right-0 w-80 h-full bg-yellow-50 shadow-xl transform translate-x-full transition-transform duration-300 z-50 p-4"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center space-x-2">
+            <img
+              src="logo_mtssam.png"
+              alt="Logo MTs Sunan Ampel"
+              class="w-10 h-10 rounded-full"
+            />
+            <span class="text-teal-700 font-bold text-lg"
+              >MTs Sunan Ampel Mulyosari</span
+            >
+          </div>
+          <button id="closeMobileMenu" class="text-gray-700 focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile Menu Items -->
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="#sambutan"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Sambutan</a
+            >
+          </li>
+          <li>
+            <a
+              href="visi-misi.html"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Visi & Misi</a
+            >
+          </li>
+          <li>
+            <a
+              href="prestasi.html"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Prestasi</a
+            >
+          </li>
+          <li>
+            <a
+              href="struktur.html"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Struktur</a
+            >
+          </li>
+          <li>
+            <a
+              href="#guru"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Guru</a
+            >
+          </li>
+          <li>
+            <a
+              href="#galeri"
+              class="block px-4 py-2 text-gray-700 hover:text-teal-700"
+              >Galeri</a
+            >
+          </li>
+        </ul>
+        <!-- Mobile CTA Button -->
+        <div class="mt-8">
+          <a
+            href="#ppdb"
+            class="block w-full text-center bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-4 rounded-md transition"
+            onclick="closeMobileMenuAndScroll(event)"
+          >
+            Daftar PPDB
+          </a>
+        </div>
+      </div>
+    </nav>
+    <script>
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const closeMobileMenu = document.getElementById("closeMobileMenu");
+      const mobileSidebar = document.getElementById("mobileSidebar");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileSidebar.classList.remove("translate-x-full");
+      });
+
+      closeMobileMenu.addEventListener("click", () => {
+        mobileSidebar.classList.add("translate-x-full");
+      });
+
+      // Fungsi baru untuk menutup sidebar dan mengarahkan ke bagian PPDB
+      function closeMobileMenuAndScroll(event) {
+        // Mencegah perilaku default dari anchor (scroll otomatis sebelum sidebar tertutup)
+        event.preventDefault();
+
+        // Tutup sidebar dulu
+        mobileSidebar.classList.add("translate-x-full");
+
+        // Setelah sidebar tertutup (300ms sesuai transisi), lakukan scroll
+        setTimeout(() => {
+          const targetSection = document.getElementById("ppdb");
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300); // Harus sesuai dengan durasi transisi Tailwind (300ms)
+      }
+
+      // Close sidebar if click outside
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileSidebar.contains(e.target) &&
+          !mobileMenuButton.contains(e.target)
+        ) {
+          mobileSidebar.classList.add("translate-x-full");
+        }
+      });
+    </script>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+      <!-- offset navbar -->
+
+      <!-- Struktur Organisasi Section -->
+      <section id="struktur" class="py-12 md:py-24 bg-yellow-50">
+        <div class="container mx-auto px-4">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h1
+              class="text-3xl md:text-4xl font-bold font-headline text-teal-700"
+            >
+              Struktur Organisasi
+            </h1>
+            <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">
+              Struktur Organisasi dan Personalia MTs Sunan Ampel tahun 2025/2026
+            </p>
+          </div>
+
+          <!-- Kepala Madrasah -->
+          <div class="flex justify-center mb-8">
+            <div class="org-item">
+              <div class="org-role">Kepala Madrasah</div>
+              <div class="org-name">Santoso, S.HI</div>
+            </div>
+          </div>
+
+          <!-- Vertical Line -->
+          <div class="flex justify-center mb-8">
+            <div class="vertical-line"></div>
+          </div>
+
+          <!-- Level 2: Operator, Kepala Perpustakaan, Kepala TU, Bendahara -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-4 mb-8 justify-center"
+          >
+            <div class="org-item">
+              <div class="org-role">Operator</div>
+              <div class="org-name">Abdul Halim A.A, S.Pd</div>
+            </div>
+
+            <div class="org-item">
+              <div class="org-role">Kepala Perpustakaan</div>
+              <div class="org-name">Khittotud Diniyah, S.Pd</div>
+            </div>
+
+            <div class="org-item">
+              <div class="org-role">Kepala TU</div>
+              <div class="org-name">Cici Fanisa Yulia Dwi Jayanti, S.Pd</div>
+            </div>
+
+            <div class="org-item">
+              <div class="org-role">Bendahara</div>
+              <div class="org-name">Nikmatul Ulfa Sari, S.SI</div>
+            </div>
+          </div>
+
+          <!-- Vertical Line -->
+          <div class="flex justify-center mb-8">
+            <div class="vertical-line"></div>
+          </div>
+
+          <!-- Level 3: Wakil Kepala -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 justify-center"
+          >
+            <div class="org-item">
+              <div class="org-role">Waka Kurikulum</div>
+              <div class="org-name">Abdul Halim A.A, S.Pd</div>
+            </div>
+
+            <div class="org-item">
+              <div class="org-role">Waka Kesiswaan</div>
+              <div class="org-name">Ah. Ainur Rofiq, M.E</div>
+            </div>
+
+            <div class="org-item">
+              <div class="org-role">Waka Sarpras</div>
+              <div class="org-name">Mistari</div>
+            </div>
+
+            <div class="org-item">
+              <div class="org-role">Waka Humas</div>
+              <div class="org-name">Mishadi</div>
+            </div>
+          </div>
+
+          <!-- Level 4: Wali Kelas, Koordinator BK/BP, Komite Madrasah -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- Wali Kelas -->
+            <div>
+              <h3 class="section-title">Wali Kelas</h3>
+              <div class="space-y-2">
+                <div class="box-item">VII: Khittotud Diniyah, S.Pd</div>
+                <div class="box-item">VIII: Nikmatul Ulfa Sari, S.SI</div>
+                <div class="box-item">
+                  IX: Cici Fanisa Yulia Dwi Jayanti, S.Pd
+                </div>
+              </div>
+            </div>
+
+            <!-- Koordinator BK/BP -->
+            <div>
+              <h3 class="section-title">Koordinator BK/BP</h3>
+              <div class="box-item">Cici Fanisa Yulia Dwi Jayanti, S.Pd</div>
+            </div>
+
+            <!-- Komite Madrasah -->
+            <div>
+              <h3 class="section-title">Komite Madrasah</h3>
+              <div class="box-item">Junaidi</div>
+            </div>
+          </div>
+
+          <!-- Back to Home Button -->
+          <div class="text-center mt-16">
+            <a
+              href="index.html"
+              class="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-md transition duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="mr-2 h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              Kembali ke Beranda
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-50 text-gray-700 pt-12">
+      <div class="container mx-auto px-4 pb-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Logo & Kontak -->
+          <div class="flex flex-col">
+            <div class="flex items-center mb-4">
+              <img
+                src="logo_mtssam.png"
+                alt="Logo MTs Sunan Ampel"
+                class="w-10 h-10 rounded-full mr-2"
+              />
+              <span class="text-xl font-bold font-headline text-teal-700"
+                >MTs Sunan Ampel Mulyosari</span
+              >
+            </div>
+            <p class="text-sm">Dsn. Mulyosari, Ds. Bunder, Kabat, Banyuwangi</p>
+            <p class="text-sm mt-2">+62 823-0124-7678 (Bu Nikma)</p>
+            <p class="text-sm">+62 822-3495-5585 (P.Arif)</p>
+          </div>
+
+          <!-- Tautan Cepat -->
+          <div>
+            <h3 class="text-lg font-semibold font-headline mb-4 text-teal-700">
+              Tautan Cepat
+            </h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="index.html#sambutan"
+                  class="hover:text-teal-600 transition-colors"
+                  >Sambutan Kepala Sekolah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="visi-misi.html"
+                  class="hover:text-teal-600 transition-colors"
+                  >Visi & Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="prestasi.html"
+                  class="hover:text-teal-600 transition-colors"
+                  >Prestasi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#guru"
+                  class="hover:text-teal-600 transition-colors"
+                  >Guru</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#galeri"
+                  class="hover:text-teal-600 transition-colors"
+                  >Galeri</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ikuti Kami -->
+          <div>
+            <h3 class="text-lg font-semibold font-headline mb-4 text-teal-700">
+              Ikuti Kami
+            </h3>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3"
+                aria-label="Instagram"
+                class="text-gray-600 hover:text-teal-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.847.07 3.242.148 4.684.668 5.776 1.356.98.61 1.716 1.374 2.18 2.18.688 1.092 1.208 2.534 1.356 5.776.057 1.263.069 1.643.069 4.847v.163c0 3.204-.012 3.584-.069 4.847-.149 3.242-.669 4.684-1.356 5.776-.61.98-1.374 1.716-2.18 2.18-1.092.688-2.534 1.208-5.776 1.356-1.263.057-1.643.069-4.847.069h-.163c-3.204 0-3.584-.012-4.847-.069-3.242-.148-4.684-.668-5.776-1.356-.98-.61-1.716-1.374-2.18-2.18-1.356-2.177-1.356-2.177-1.356-5.776v-.163c0-3.204.012-3.584.069-4.847.149-3.242.669-4.684 1.356-5.776.61-.98 1.374-1.716 2.18-2.18 1.092-.688 2.534-1.208 5.776-1.356 1.263-.057 1.643-.069 4.847-.069h.163zm0-2.163h-.163c-3.204 0-3.584.012-4.847.069-3.242.148-4.684.668-5.776 1.356-.98.61-1.716 1.374-2.18 2.18-1.356 2.177-1.356 2.177-1.356 5.776v.163c0 3.204.012 3.584.069 4.847.149 3.242.669 4.684 1.356 5.776.61.98 1.374 1.716 2.18 2.18 1.092.688 2.534 1.208 5.776 1.356 1.263.057 1.643.069 4.847.069h.163c3.204 0 3.584-.012 4.847-.069 3.242-.148 4.684-.668 5.776-1.356.98-.61 1.716-1.374 2.18-2.18 1.356-2.177 1.356-2.177 1.356-5.776v-.163c0-3.204-.012-3.584-.069-4.847-.149-3.242-.669-4.684-1.356-5.776-.61-.98-1.374-1.716-2.18-2.18-1.092-.688-2.534-1.208-5.776-1.356-1.263-.057-1.643-.069-4.847-.069zm0 5.838c-3.405 0-6.162 2.757-6.162 6.162s2.757 6.162 6.162 6.162 6.162-2.757 6.162-6.162-2.757-6.162-6.162-6.162zm0 10.162c-2.274 0-4.162-1.888-4.162-4.162s1.888-4.162 4.162-4.162 4.162 1.888 4.162 4.162-1.888 4.162-4.162 4.162zm6.406-18.908c-1.058 0-1.897.839-1.897 1.897s.839 1.897 1.897 1.897 1.897-.839 1.897-1.897-.839-1.897-1.897-1.897z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/@MTsSunanAmpel-ck5rc"
+                aria-label="YouTube"
+                class="text-gray-600 hover:text-teal-600 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 00-2.122-2.122C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.376.519A3.016 3.016 0 00.502 6.186C0 8.058 0 12 0 12s0 3.942.502 5.814a3.016 3.016 0 002.122 2.122C4.495 20.455 12 20.455 12 20.455s7.505 0 9.376-.519a3.016 3.016 0 002.122-2.122C24 15.942 24 12 24 12s0-3.942-.502-5.814zM9.75 15.021V8.979L15.515 12l-5.765 3.021z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="mt-8 border-t border-gray-200 pt-6 text-center text-sm text-gray-500"
+        >
+          <p>&copy; 2025 MTs Sunan Ampel Mulyosari. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
