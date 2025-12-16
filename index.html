@@ -759,6 +759,13 @@
 
         // Event listener untuk scroll
         window.addEventListener("scroll", updateScrollIndicator);
+
+        const hash = window.location.hash;
+        if (hash === "#ppdb") {
+          setTimeout(() => {
+            openModal();
+          }, 500);
+        }
       });
     </script>
 
