@@ -4,10 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visi & Misi - MTs Sunan Ampel Mulyosari</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <!-- Tailwind CSS CDN -->
+
+    <meta
+      name="description"
+      content="Selamat datang di website resmi MTs Sunan Ampel Mulyosari. Informasi akademik, prestasi, dan kegiatan siswa dan warga madrasah."
+    />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Styles for Icons & Cards -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MTs Sunan Ampel Mulyosari",
+        "alternateName": [
+          "Madrasah Tsanawiyah Sunan Ampel Mulyosari",
+          "MTs Sunan Ampel"
+        ],
+        "url": "https://www.mtssunanampelmulyosari.sch.id/",
+        "logo": "https://www.mtssunanampelmulyosari.sch.id/logo_mtssam.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dsn. Mulyosari, Ds. Bunder, Kabat, Banyuwangi",
+          "addressLocality": "Mulyosari",
+          "addressRegion": "Jawa Timur",
+          "postalCode": "68461",
+          "addressCountry": "ID"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+62 822-3495-5585",
+          "contactType": "Administrasi",
+          "areaServed": "ID",
+          "availableLanguage": "id"
+        },
+        "sameAs": [
+          "https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3",
+          "https://www.youtube.com/@MTsSunanAmpel-ck5rc"
+        ]
+      }
+    </script>
+
+    <meta
+      property="og:title"
+      content="MTs Sunan Ampel Mulyosari - Situs Resmi Madrasah Tsanawiyah"
+    />
+    <meta
+      property="og:description"
+      content="Selamat datang di website resmi MTs Sunan Ampel Mulyosari. Informasi akademik, prestasi, dan kegiatan siswa dan warga madrasah."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.mtssunanampelmulyosari.sch.id/"
+    />
+    <meta
+      property="og:image"
+      content="https://www.mtssunanampelmulyosari.sch.id/logo_mtssam.png"
+    />
+    <!-- Ganti dengan URL gambar utama yang representatif -->
+    <meta property="og:locale" content="id_ID" />
+
+    <link rel="canonical" href="https://www.mtssunanampelmulyosari.sch.id/" />
     <style>
       .icon-circle {
         width: 32px;
@@ -65,7 +127,7 @@
         <!-- Logo & Brand -->
         <div class="flex items-center space-x-2">
           <img
-            src="logo_mtssam.png"
+            src="/logo_mtssam.png"
             alt="Logo MTs Sunan Ampel"
             class="w-10 h-10 rounded-full"
           />
@@ -125,7 +187,7 @@
         <div class="flex justify-between items-center mb-6">
           <div class="flex items-center space-x-2">
             <img
-              src="logo_mtssam.png"
+              src="/logo_mtssam.png"
               alt="Logo MTs Sunan Ampel"
               class="w-10 h-10 rounded-full"
             />
@@ -464,7 +526,7 @@
           <div class="flex flex-col">
             <div class="flex items-center mb-4">
               <img
-                src="logo_mtssam.png"
+                src="/logo_mtssam.png"
                 alt="Logo MTs Sunan Ampel"
                 class="w-10 h-10 rounded-full mr-2"
               />
@@ -505,23 +567,17 @@
                 >
               </li>
               <li>
-                <a
-                  href="/#guru"
-                  class="hover:text-teal-600 transition-colors"
+                <a href="/#guru" class="hover:text-teal-600 transition-colors"
                   >Guru</a
                 >
               </li>
               <li>
-                <a
-                  href="/#galeri"
-                  class="hover:text-teal-600 transition-colors"
+                <a href="/#galeri" class="hover:text-teal-600 transition-colors"
                   >Galeri</a
                 >
               </li>
               <li>
-                <a
-                  href="/#ppdb"
-                  class="hover:text-teal-600 transition-colors"
+                <a href="/#ppdb" class="hover:text-teal-600 transition-colors"
                   >PPDB</a
                 >
               </li>
@@ -537,23 +593,44 @@
               <a
                 href="https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3"
                 aria-label="Instagram"
-                class="text-gray-600 hover:text-teal-600 transition-colors"
+                class="text-gray-600 hover:text-red-600 transition-colors"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
+                  id="instagram"
                   fill="currentColor"
-                  viewBox="0 0 24 24"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 169.063 169.063"
+                  xml:space="preserve"
+                  class="h-6 w-6"
                 >
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.847.07 3.242.148 4.684.668 5.776 1.356.98.61 1.716 1.374 2.18 2.18.688 1.092 1.208 2.534 1.356 5.776.057 1.263.069 1.643.069 4.847v.163c0 3.204-.012 3.584-.069 4.847-.149 3.242-.669 4.684-1.356 5.776-.61.98-1.374 1.716-2.18 2.18-1.092.688-2.534 1.208-5.776 1.356-1.263.057-1.643.069-4.847.069h-.163c-3.204 0-3.584-.012-4.847-.069-3.242-.148-4.684-.668-5.776-1.356-.98-.61-1.716-1.374-2.18-2.18-1.356-2.177-1.356-2.177-1.356-5.776v-.163c0-3.204.012-3.584.069-4.847.149-3.242.669-4.684 1.356-5.776.61-.98 1.374-1.716 2.18-2.18 1.092-.688 2.534-1.208 5.776-1.356 1.263-.057 1.643-.069 4.847-.069h.163zm0-2.163h-.163c-3.204 0-3.584.012-4.847.069-3.242.148-4.684.668-5.776 1.356-.98.61-1.716 1.374-2.18 2.18-1.356 2.177-1.356 2.177-1.356 5.776v.163c0 3.204.012 3.584.069 4.847.149 3.242.669 4.684 1.356 5.776.61.98 1.374 1.716 2.18 2.18 1.092.688 2.534 1.208 5.776 1.356 1.263.057 1.643.069 4.847.069h.163c3.204 0 3.584-.012 4.847-.069 3.242-.148 4.684-.668 5.776-1.356.98-.61 1.716-1.374 2.18-2.18 1.356-2.177 1.356-2.177 1.356-5.776v-.163c0-3.204-.012-3.584-.069-4.847-.149-3.242-.669-4.684-1.356-5.776-.61-.98-1.374-1.716-2.18-2.18-1.092-.688-2.534-1.208-5.776-1.356-1.263-.057-1.643-.069-4.847-.069zm0 5.838c-3.405 0-6.162 2.757-6.162 6.162s2.757 6.162 6.162 6.162 6.162-2.757 6.162-6.162-2.757-6.162-6.162-6.162zm0 10.162c-2.274 0-4.162-1.888-4.162-4.162s1.888-4.162 4.162-4.162 4.162 1.888 4.162 4.162-1.888 4.162-4.162 4.162zm6.406-18.908c-1.058 0-1.897.839-1.897 1.897s.839 1.897 1.897 1.897 1.897-.839 1.897-1.897-.839-1.897-1.897-1.897z"
-                  />
+                  <g>
+                    <path
+                      d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
+                c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
+                c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
+                c17.455,0,31.656,14.201,31.656,31.655V122.407z"
+                    />
+                    <path
+                      d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
+                C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
+                c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"
+                    />
+                    <path
+                      d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
+                c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
+                C135.661,29.421,132.821,28.251,129.921,28.251z"
+                    />
+                  </g>
                 </svg>
               </a>
               <a
                 href="https://www.youtube.com/@MTsSunanAmpel-ck5rc"
                 aria-label="YouTube"
-                class="text-gray-600 hover:text-teal-600 transition-colors"
+                class="text-gray-600 hover:text-red-600 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
