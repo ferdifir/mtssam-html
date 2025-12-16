@@ -3,13 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MTs Sunan Ampel Mulyosari - Situs Resmi Madrasah Tsanawiyah</title>
+
+    <meta
+      name="description"
+      content="Selamat datang di website resmi MTs Sunan Ampel Mulyosari. Informasi akademik, prestasi, dan kegiatan siswa dan warga madrasah."
+    />
+
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <title>MTs Sunan Ampel Mulyosari</title>
-    <!-- Tailwind CSS CDN -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Styles for Hero Video -->
     <link rel="stylesheet" href="style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MTs Sunan Ampel Mulyosari",
+        "alternateName": [
+          "Madrasah Tsanawiyah Sunan Ampel Mulyosari",
+          "MTs Sunan Ampel"
+        ],
+        "url": "https://www.mtssunanampelmulyosari.sch.id/",
+        "logo": "https://www.mtssunanampelmulyosari.sch.id/logo_mtssam.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dsn. Mulyosari, Ds. Bunder, Kabat, Banyuwangi",
+          "addressLocality": "Mulyosari",
+          "addressRegion": "Jawa Timur",
+          "postalCode": "68461",
+          "addressCountry": "ID"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+62 822-3495-5585",
+          "contactType": "Administrasi",
+          "areaServed": "ID",
+          "availableLanguage": "id"
+        },
+        "sameAs": [
+          "https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3",
+          "https://www.youtube.com/@MTsSunanAmpel-ck5rc"
+        ]
+      }
+    </script>
+
+    <meta
+      property="og:title"
+      content="MTs Sunan Ampel Mulyosari - Situs Resmi Madrasah Tsanawiyah"
+    />
+    <meta
+      property="og:description"
+      content="Selamat datang di website resmi MTs Sunan Ampel Mulyosari. Informasi akademik, prestasi, dan kegiatan siswa dan warga madrasah."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.mtssunanampelmulyosari.sch.id/"
+    />
+    <meta
+      property="og:image"
+      content="https://www.mtssunanampelmulyosari.sch.id/logo_mtssam.png"
+    />
+    <!-- Ganti dengan URL gambar utama yang representatif -->
+    <meta property="og:locale" content="id_ID" />
+
+    <link rel="canonical" href="https://www.mtssunanampelmulyosari.sch.id/" />
   </head>
+
   <body class="font-sans antialiased">
     <!-- Navbar Mobile-Friendly -->
     <nav class="fixed top-0 left-0 w-full bg-yellow-50 shadow-md z-50">
@@ -347,7 +409,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9 12l2 2 4-4m6 6l-6-6-6 6"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0h-.01M12 14v4"
                 />
               </svg>
             </div>
@@ -405,7 +467,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M17 20h-2v-2a6 6 0 00-5-5H8V11H6V9H4v2H2v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2v-2z"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h6l2-2v-4h2v2h4v-2h2V9h-4V7h-4V5zm-2 4h4v2H9V9z"
                 />
               </svg>
             </div>
@@ -435,6 +497,12 @@
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M9 12l2 2 4-4m6 6l-6-6-6 6"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 14v6m-6-6v6m-4-6v6"
                 />
               </svg>
             </div>
@@ -599,6 +667,100 @@
       </div>
     </section>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const carouselTrack = document.getElementById("carousel-track");
+        const items = carouselTrack.querySelectorAll(".carousel-item");
+
+        // Duplikasi semua item agar menjadi dua set
+        items.forEach((item) => {
+          const clone = item.cloneNode(true);
+          carouselTrack.appendChild(clone);
+        });
+
+        let position = 0;
+        const speed = 0.65; // Kecepatan scroll (semakin besar semakin cepat)
+
+        function animate() {
+          position -= speed;
+
+          // Ambil lebar total dari satu set item
+          const firstSetWidth = items[0].offsetWidth * items.length;
+
+          // Jika posisi melewati lebar satu set, reset ke awal tanpa lompat
+          if (position <= -firstSetWidth) {
+            position = 0;
+          }
+
+          carouselTrack.style.transform = `translateX(${position}px)`;
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Button Video Controller
+        const video = document.querySelector(".video-bg");
+        const toggleBtn = document.getElementById("toggleMuteBtn");
+        const muteIcon = document.getElementById("muteIcon");
+        const unmuteIcon = document.getElementById("unmuteIcon");
+        const scrollIndicator = document.getElementById("scrollIndicator");
+
+        // Fungsi untuk sinkronisasi ikon dengan status video
+        function updateButtonIcon() {
+          if (video.muted) {
+            muteIcon.classList.remove("hidden");
+            unmuteIcon.classList.add("hidden");
+            toggleBtn.setAttribute("aria-label", "Unmute Video");
+          } else {
+            muteIcon.classList.add("hidden");
+            unmuteIcon.classList.remove("hidden");
+            toggleBtn.setAttribute("aria-label", "Mute Video");
+          }
+        }
+
+        // Fungsi untuk menghitung dan menggambar indikator scroll
+        function updateScrollIndicator() {
+          // Hitung persentase scroll
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const docHeight = Math.max(
+            document.body.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.clientHeight,
+            document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+          );
+          const winHeight = window.innerHeight;
+          const scrollPercent = scrollTop / (docHeight - winHeight);
+          const scrollPercentRounded = Math.min(Math.max(scrollPercent, 0), 1); // Batasi antara 0 dan 1
+
+          // Hitung offset dasharray (283 adalah keliling penuh)
+          const offset = 283 - scrollPercentRounded * 283;
+          scrollIndicator.style.strokeDashoffset = offset;
+        }
+
+        // Sinkronisasi awal
+        updateButtonIcon();
+        updateScrollIndicator(); // Update saat halaman dimuat
+
+        // Event listener untuk tombol
+        toggleBtn.addEventListener("click", function () {
+          video.muted = !video.muted;
+          updateButtonIcon();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Event listener untuk video (opsional)
+        video.addEventListener("volumechange", updateButtonIcon);
+
+        // Event listener untuk scroll
+        window.addEventListener("scroll", updateScrollIndicator);
+      });
+    </script>
+
     <!-- Galeri Kegiatan -->
     <section id="galeri" class="py-12 md:py-24 bg-white">
       <div class="container mx-auto px-4">
@@ -708,14 +870,35 @@
             class="inline-flex items-center px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-md transition duration-300"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="mr-2 h-5 w-5"
+              id="instagram"
               fill="currentColor"
-              viewBox="0 0 24 24"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 169.063 169.063"
+              xml:space="preserve"
+              class="mr-2 h-5 w-5"
             >
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.847.07 3.242.148 4.684.668 5.776 1.356.98.61 1.716 1.374 2.18 2.18.688 1.092 1.208 2.534 1.356 5.776.057 1.263.069 1.643.069 4.847v.163c0 3.204-.012 3.584-.069 4.847-.149 3.242-.669 4.684-1.356 5.776-.61.98-1.374 1.716-2.18 2.18-1.092.688-2.534 1.208-5.776 1.356-1.263.057-1.643.069-4.847.069h-.163c-3.204 0-3.584-.012-4.847-.069-3.242-.148-4.684-.668-5.776-1.356-.98-.61-1.716-1.374-2.18-2.18-1.356-2.177-1.356-2.177-1.356-5.776v-.163c0-3.204.012-3.584.069-4.847.149-3.242.669-4.684 1.356-5.776.61-.98 1.374-1.716 2.18-2.18 1.092-.688 2.534-1.208 5.776-1.356 1.263-.057 1.643-.069 4.847-.069h.163zm0-2.163h-.163c-3.204 0-3.584.012-4.847.069-3.242.148-4.684.668-5.776 1.356-.98.61-1.716 1.374-2.18 2.18-1.356 2.177-1.356 2.177-1.356 5.776v.163c0 3.204.012 3.584.069 4.847.149 3.242.669 4.684 1.356 5.776.61.98 1.374 1.716 2.18 2.18 1.092.688 2.534 1.208 5.776 1.356 1.263.057 1.643.069 4.847.069h.163c3.204 0 3.584-.012 4.847-.069 3.242-.148 4.684-.668 5.776-1.356.98-.61 1.716-1.374 2.18-2.18 1.356-2.177 1.356-2.177 1.356-5.776v-.163c0-3.204-.012-3.584-.069-4.847-.149-3.242-.669-4.684-1.356-5.776-.61-.98-1.374-1.716-2.18-2.18-1.092-.688-2.534-1.208-5.776-1.356-1.263-.057-1.643-.069-4.847-.069zm0 5.838c-3.405 0-6.162 2.757-6.162 6.162s2.757 6.162 6.162 6.162 6.162-2.757 6.162-6.162-2.757-6.162-6.162-6.162zm0 10.162c-2.274 0-4.162-1.888-4.162-4.162s1.888-4.162 4.162-4.162 4.162 1.888 4.162 4.162-1.888 4.162-4.162 4.162zm6.406-18.908c-1.058 0-1.897.839-1.897 1.897s.839 1.897 1.897 1.897 1.897-.839 1.897-1.897-.839-1.897-1.897-1.897z"
-              />
+              <g>
+                <path
+                  d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
+            c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
+            c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
+            c17.455,0,31.656,14.201,31.656,31.655V122.407z"
+                />
+                <path
+                  d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
+            C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
+            c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"
+                />
+                <path
+                  d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
+            c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
+            C135.661,29.421,132.821,28.251,129.921,28.251z"
+                />
+              </g>
             </svg>
             Lihat Lebih Banyak di Instagram
           </a>
@@ -799,9 +982,7 @@
                 >
               </li>
               <li>
-                <a
-                  href="prestasi"
-                  class="hover:text-teal-600 transition-colors"
+                <a href="prestasi" class="hover:text-teal-600 transition-colors"
                   >Prestasi</a
                 >
               </li>
@@ -832,23 +1013,44 @@
               <a
                 href="https://www.instagram.com/mts.sunanampel.mulyosari?igsh=b2huaGp2NWNrMXN3"
                 aria-label="Instagram"
-                class="text-gray-600 hover:text-teal-600 transition-colors"
+                class="text-gray-600 hover:text-red-600 transition-colors"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
+                  id="instagram"
                   fill="currentColor"
-                  viewBox="0 0 24 24"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 169.063 169.063"
+                  xml:space="preserve"
+                  class="h-6 w-6"
                 >
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.847.07 3.242.148 4.684.668 5.776 1.356.98.61 1.716 1.374 2.18 2.18.688 1.092 1.208 2.534 1.356 5.776.057 1.263.069 1.643.069 4.847v.163c0 3.204-.012 3.584-.069 4.847-.149 3.242-.669 4.684-1.356 5.776-.61.98-1.374 1.716-2.18 2.18-1.092.688-2.534 1.208-5.776 1.356-1.263.057-1.643.069-4.847.069h-.163c-3.204 0-3.584-.012-4.847-.069-3.242-.148-4.684-.668-5.776-1.356-.98-.61-1.716-1.374-2.18-2.18-1.356-2.177-1.356-2.177-1.356-5.776v-.163c0-3.204.012-3.584.069-4.847.149-3.242.669-4.684 1.356-5.776.61-.98 1.374-1.716 2.18-2.18 1.092-.688 2.534-1.208 5.776-1.356 1.263-.057 1.643-.069 4.847-.069h.163zm0-2.163h-.163c-3.204 0-3.584.012-4.847.069-3.242.148-4.684.668-5.776 1.356-.98.61-1.716 1.374-2.18 2.18-1.356 2.177-1.356 2.177-1.356 5.776v.163c0 3.204.012 3.584.069 4.847.149 3.242.669 4.684 1.356 5.776.61.98 1.374 1.716 2.18 2.18 1.092.688 2.534 1.208 5.776 1.356 1.263.057 1.643.069 4.847.069h.163c3.204 0 3.584-.012 4.847-.069 3.242-.148 4.684-.668 5.776-1.356.98-.61 1.716-1.374 2.18-2.18 1.356-2.177 1.356-2.177 1.356-5.776v-.163c0-3.204-.012-3.584-.069-4.847-.149-3.242-.669-4.684-1.356-5.776-.61-.98-1.374-1.716-2.18-2.18-1.092-.688-2.534-1.208-5.776-1.356-1.263-.057-1.643-.069-4.847-.069zm0 5.838c-3.405 0-6.162 2.757-6.162 6.162s2.757 6.162 6.162 6.162 6.162-2.757 6.162-6.162-2.757-6.162-6.162-6.162zm0 10.162c-2.274 0-4.162-1.888-4.162-4.162s1.888-4.162 4.162-4.162 4.162 1.888 4.162 4.162-1.888 4.162-4.162 4.162zm6.406-18.908c-1.058 0-1.897.839-1.897 1.897s.839 1.897 1.897 1.897 1.897-.839 1.897-1.897-.839-1.897-1.897-1.897z"
-                  />
+                  <g>
+                    <path
+                      d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
+                c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
+                c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
+                c17.455,0,31.656,14.201,31.656,31.655V122.407z"
+                    />
+                    <path
+                      d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
+                C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
+                c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"
+                    />
+                    <path
+                      d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
+                c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
+                C135.661,29.421,132.821,28.251,129.921,28.251z"
+                    />
+                  </g>
                 </svg>
               </a>
               <a
                 href="https://www.youtube.com/@MTsSunanAmpel-ck5rc"
                 aria-label="YouTube"
-                class="text-gray-600 hover:text-teal-600 transition-colors"
+                class="text-gray-600 hover:text-red-600 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -930,6 +1132,93 @@
         </form>
       </div>
     </div>
+
+    <button
+      id="toggleMuteBtn"
+      aria-label="Toggle Sound"
+      class="fixed bottom-4 right-4 bg-white text-gray-700 p-3 rounded-full shadow-lg hover:bg-gray-100 active:scale-95 transition-all duration-200 ease-in-out z-50"
+      style="
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 0;
+      "
+    >
+      <div class="relative w-full h-full flex items-center justify-center">
+        <svg
+          class="absolute inset-0 z-0"
+          viewBox="0 0 100 100"
+          style="width: 120%; height: 120%; top: -10%; left: -10%"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#e5e7eb"
+            stroke-width="6"
+            stroke-linecap="round"
+          ></circle>
+          <circle
+            id="scrollIndicator"
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#10B981"
+            stroke-width="6"
+            stroke-linecap="round"
+            transform="rotate(-90 50 50)"
+            stroke-dasharray="283"
+            stroke-dashoffset="283"
+          ></circle>
+        </svg>
+
+        <div
+          class="relative z-10 /* Pastikan ikon tetap terpusat di tengah tombol */ flex items-center justify-center"
+        >
+          <svg
+            id="muteIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5.586 15H4a1 1 0 01-1-1V9a1 1 0 011-1h1.586l.659-.728A3 3 0 0110 5.464V18.536a3 3 0 01-1.755 2.757l-.659-.728z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17 9l4-4M17 15l4 4"
+            />
+          </svg>
+
+          <svg
+            id="unmuteIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1V9a1 1 0 011-1h1.586l.659-.728A3 3 0 0110 5.464V18.536a3 3 0 01-1.755 2.757l-.659-.728z"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
 
     <!-- JavaScript for Modal -->
     <script>

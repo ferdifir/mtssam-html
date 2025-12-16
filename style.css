@@ -63,7 +63,6 @@
   transform: scale(1.05);
 }
 
-
 .gallery-item {
   overflow: hidden;
   border-radius: 0.5rem;
@@ -197,4 +196,16 @@
   color: #dc2626; /* red-600 */
   font-size: 0.75rem;
   margin-top: 0.25rem;
+}
+
+#teachers-carousel {
+  overflow: hidden;
+}
+
+#carousel-track {
+  display: flex;
+}
+
+.teacher-card img {
+  object-fit: cover;
 }
